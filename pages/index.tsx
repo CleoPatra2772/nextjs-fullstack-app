@@ -1,16 +1,12 @@
-import DogCard from "../components/cards/dog/DogCard";
-import { mockDogCardProps } from "../components/cards/dog/DogCard.mocks";
+
 import PrimaryLayout from "../components/layouts/primary/PrimaryLayout";
-import SidebarLayout from "../components/layouts/sidebar/SidebarLayout";
 import { NextPageWithLayout } from './page';
+import Search from "../components/utility/search/Search";
 
 const Home: NextPageWithLayout = () => {
   return (
-    <section className="bg-gradient-to-r from-cyan-500 to-blue-500">
-        <h1>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-        <DogCard {...mockDogCardProps.base} />
+    <section>
+        <Search />
     </section>
   );
 };
@@ -21,7 +17,7 @@ export default Home;
 Home.getLayout = (page) => {
   return (
   <PrimaryLayout>
-    <SidebarLayout/>
+    
     {page}
   
     </PrimaryLayout>
