@@ -1,4 +1,4 @@
-import styles from './Search.module.css';
+
 import { useState } from 'react';
 
 export interface ISearch {
