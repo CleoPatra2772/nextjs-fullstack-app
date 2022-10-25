@@ -1,5 +1,6 @@
 import * as NextImage from 'next/image';
 import '../styles/globals.css';
+import AuthProvider from '../context/Auth/AuthContext';
 
 const BREAKPOINTS_INT = {
   xs: 375,
@@ -33,6 +34,14 @@ Object.defineProperty(NextImage, 'default', {
   value: (props) => <OriginalNextImage {...props} unoptimized />,
 });
 
+export const decorators = [
+  (Story) => (
+    <AuthProvider>
+      <Story />
+    </AuthProvider>
+  )
+]
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -40,5 +49,10 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+  },
+  viewport: { viewports: customViewports },
+  layout: 'fullscreen',
+  nextRouter: {
+    Provider: RouterContext.Provider,
   },
 }
